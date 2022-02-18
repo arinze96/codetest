@@ -16,4 +16,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [UserController::class,"index"])->name("app.home");
 Route::get('/register', [UserController::class,"register"])->name("user.register");
+Route::post('/register', [UserController::class,"register"])->name("user.register.post");
+
 Route::get('/login', [UserController::class,"login"])->name("user.login");
+Route::post('/login', [UserController::class,"login"])->name("user.login.post");

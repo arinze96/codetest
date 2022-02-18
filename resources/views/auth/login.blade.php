@@ -26,18 +26,26 @@
                         Sign in with google <i class="fas fa-arrow-right"></i></button>
                 </div>
 
-                <form>
-
+                <form method="POST"  action="{{ route('user.login.post') }}" id="loginForm1">
+                    @csrf
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Username or Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <label for="exampleInputEmail1" class="form-label email">Your Work Email</label>
+                        <input type="email" class="form-control email" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="name@company.com" name="email" value="{{ old('email') }}">
+                            @error('email')
+                            <p class="">{{ $message }} </p>
+                        @enderror
                     </div>
                     <div class="mb-5">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <label for="exampleInputPassword1" class="form-label password">Password</label>
+                        <input type="password" class="form-control password" id="exampleInputPassword1"
+                            placeholder="Enter password" name="password">
+                            @error('password')
+                            <p class="">{{ $message }} </p>
+                        @enderror
                     </div>
                     <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary" style="background-color:blueviolet;   border-color: blueviolet;">Login <i class="fas fa-arrow-right"></i></button>
+                        <button type="submit" class="btn btn-primary" id="main_btn" style="background-color:blueviolet;   border-color: blueviolet;">Login <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </form>
 

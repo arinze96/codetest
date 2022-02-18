@@ -29,6 +29,18 @@
         text-decoration: none;
 
     }
+    .desc3 {
+        color: blue;
+        font-size: 14px;
+        text-decoration: none;
+
+    }
+    .desc5 {
+        font-size: 14px;
+        text-decoration: none;
+        color: black;
+
+    }
 
     .desc1 {
         font-size: 15px;
@@ -54,5 +66,19 @@
         font-size: 30px;
         color: grey;
     }
+    .submitbutton{
+        border-radius: 20px;
+        margin-bottom: 30px;
+     }
+     .submitbutton1{
+        border-radius: 20px;
+        border-color: grey;
+     }
+     /* .home{
+         width: 100%;
+         background-color: aqua;
+         height: calc(100vh - 70px);
+         margin-top: calc(100vh - 270px);
+     } */
 
 </style>
