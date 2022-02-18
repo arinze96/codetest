@@ -23,31 +23,33 @@ class UserController extends Controller
     public function register(Request $request)
     {
         if ($request->method() == "GET") {
-            if (!empty($request->user()->id)) {
-                return redirect()->route('user.login');
-            }
+            // if (!empty($request->user()->id)) {
+            //     return redirect()->route('user.login');
+            // }
             return view("auth.signup");
-        }
-        $data = (object) $request->all();
-
-        $validated =  $request->validate([
-            "fullname" => ["required"],
-            "email" => ["required"],
-            "password" => ["required", "between:6,15"]
-        ]);
-
-       if($validated){
-        User::create([
-            "fullname" => $data->fullname,
-            "email" => $data->email,
-            "password" => Hash::make($data->password),
-        ]);
-
-        $route =  "app.home";
-        
-        return redirect()->route($route);
-    }
             
+        }elseif($request->method() == "POST"){
+            $data = (object) $request->all();
+
+            $validated =  $request->validate([
+                "fullname" => ["required"],
+                "email" => ["required"],
+                "password" => ["required", "between:6,15"]
+            ]);
+            $user = User::create([
+                "fullname" => $data->fullname,
+                "email" => $data->email,
+                "password" => Hash::make($data->password),
+            ]);
+            if($user){
+                return response()->json(["success"=>true,"message"=>"successfully registered"]);
+            }
+
+            return redirect()->route('user.login');
+           
+    
+        }
+     
         
     }
 

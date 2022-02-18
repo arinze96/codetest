@@ -60,7 +60,7 @@ function processReg(e) {
         buttons: true,
     }).then(($res) => {
         if ($res == true) {
-            // $button1.html("Processing...");
+            $button1.html("Processing...");
             $.ajax({
                 url: $button.data("url"),
                 method: "POST",
