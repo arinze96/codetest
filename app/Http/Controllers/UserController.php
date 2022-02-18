@@ -23,16 +23,16 @@ class UserController extends Controller
     public function register(Request $request)
     {
         if ($request->method() == "GET") {
-            // if (!empty($request->user()->id)) {
-            //     return redirect()->route('user.login');
-            // }
+            if (!empty($request->user()->id)) {
+                return redirect()->route('user.login');
+            }
             return view("auth.signup");
         }
         $data = (object) $request->all();
 
         $validated =  $request->validate([
             "fullname" => ["required"],
-            "email" => ["required", "unique:users,email"],
+            "email" => ["required"],
             "password" => ["required", "between:6,15"]
         ]);
 
@@ -42,8 +42,11 @@ class UserController extends Controller
             "email" => $data->email,
             "password" => Hash::make($data->password),
         ]);
+
+        $route =  "app.home";
+        
+        return redirect()->route($route);
     }
-    return  redirect()->route('app.home');
             
         
     }

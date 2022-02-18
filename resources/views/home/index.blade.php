@@ -6,26 +6,27 @@
 
 
     <title>Signin into my codetest platform</title>
-<style>
-     .home{
-         width: 100%;
-         background-color: aqua;
-         height: calc(100vh -70px);
-     }
-</style>
+    <style>
+        .home {
+            width: 100%;
+            background-color: aqua;
+            height: 860px;
+        }
+
+    </style>
 
 </head>
 
 <body>
-<div class="home">Home page</div>
+    <div class="home">Home page</div>
 
 
-        @include('includes.home_footer')
+    @include('includes.home_footer')
 
 
 
 
-        @include('includes.home_script')
+    @include('includes.home_script')
 
 </body>
 
